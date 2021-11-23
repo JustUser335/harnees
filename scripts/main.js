@@ -48,7 +48,6 @@ let controller =
             });
             let pageName = ".catalog-page-" + dataPage;
             $(pageName).addClass('active');
-            console.log(pageName,$(pageName));
 
         }
         function switchStateBattonTabs(el)
@@ -106,7 +105,6 @@ let controller =
         function closeModal(el)
         {
             el.on('click',function(){
-                // console.log(event.target,'event.target')
                 const _hasClassModal = $(event.target).hasClass('modal');
                 const _hasClassClose = $(event.target).hasClass('close');
                 if( _hasClassModal || _hasClassClose ){
@@ -161,7 +159,6 @@ let controller =
 
                 let tempSumData = arrSumData[val];
                 let tempArrData = arrData[val];
-                console.log(tempSumData,'\n',tempArrData);
                 switch (val) {
                     case 'imgSrc': tempSumData.attr('src',tempArrData); break;
                     case 'caption':
@@ -189,7 +186,6 @@ let controller =
 
         function setSize(el){
             let listOption = ``;
-            console.log(el);
             el.forEach(function(e){
                 listOption += `<option value="${e}">${e}</option>`;
             });
@@ -315,10 +311,8 @@ let controller =
             xhr.onload = function()
             {
                 if (xhr.status !== 200) {
-                    console.log( xhr.status + ': ' + xhr.statusText );
                     alert('xhr нормально без сервера не отправляется');
                 } else {
-                    console.log( xhr.responseText, xhr.status );
                     alert('форма успешно отправлена');
                     userClick(modal);
                     clearField('.modal input[name="user-name"]');
